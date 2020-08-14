@@ -2,6 +2,18 @@
 @import url('https://fonts.googleapis.com/css?family=Acme&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
 
+body{
+  background: rgba(238, 255, 0, 0.74);
+}
+
+.Backgrounf{
+  background: rgba(204, 10, 10, 0.932);
+  color: aliceblue;
+  display:inline-block;
+  box-shadow: 0 4px 8px 0 rgb(255, 154, 4);
+
+}
+
 .card {
   font-family: 'Saira Stencil One', cursive;
   display: inline-block;
@@ -22,6 +34,7 @@
 h2{
   font-family: 'Acme', sans-serif;
   font-size: 50px;
+  color: aliceblue;
   text-align: center;
  }
 

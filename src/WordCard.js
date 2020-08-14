@@ -40,7 +40,7 @@ class App extends React.Component {
   render() {
 
     let attempt= this.state.completed === false ? 'FAIL' : '';
-    let Com= this.state.completed === true ? <h2 class="Righteous2">Complete </h2>: '';
+    let Com= this.state.completed === true ? <h2 class="Righteous2">Complete!!!</h2>: '';
     let resetevery= this.state.completed === true ? <button onClick={this.reset}><h1>Play Again</h1></button>: '';    
 
     return (
