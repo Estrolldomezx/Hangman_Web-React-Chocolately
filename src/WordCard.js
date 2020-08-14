@@ -40,7 +40,7 @@ export default function WordCard(props){
         <div>
             {
                 state.chars.map((c, i) => 
-                <CharacterCard value = {c} key = {i} activationHandler = {activationHandler} attempt = {state.attempt}/>) //auto import Ctrl+space
+                <CharacterCard value={c} key={i} activationHandler = {activationHandler} attempt={state.attempt}/>) //auto import Ctrl+space
             }
         </div>
     )
