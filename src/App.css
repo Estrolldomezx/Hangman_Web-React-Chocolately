@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Saira+Stencil+One&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Acme&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
 
 body{
   background: rgba(238, 255, 0, 0.74);
 }
 
-.Backgrounf{
+.Background{
   background: rgba(204, 10, 10, 0.932);
   color: aliceblue;
   display:inline-block;
@@ -31,13 +30,6 @@ body{
   background: pink;
 }
 
-h2{
-  font-family: 'Acme', sans-serif;
-  font-size: 50px;
-  color: aliceblue;
-  text-align: center;
- }
-
  .Righteous{
   font-family: 'Righteous', cursive;
   font-size: 30px;
@@ -49,6 +41,22 @@ h2{
   font-size: 60px;
   text-align: center;
  }
+
+ .blink{
+  animation:blinkingText 1.2s infinite;
+  font-family: 'Righteous', cursive;
+  font-size: 60px;
+  text-align: center;
+
+ }
+ @keyframes blinkingText{
+  0%{     color: rgba(238, 255, 0, 0.74);    }
+  49%{    color: transparent; }
+  60%{    color: rgba(238, 255, 0, 0.74);    }
+  99%{    color: transparent;  }
+  100%{   color: rgba(238, 255, 0, 0.74);    }
+}
+
  .R2{
   font-family: 'Righteous', cursive;
   font-size: 60px;

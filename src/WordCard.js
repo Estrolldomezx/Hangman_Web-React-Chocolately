@@ -40,18 +40,17 @@ class App extends React.Component {
   render() {
 
     let attempt= this.state.completed === false ? 'FAIL' : '';
-    let Com= this.state.completed === true ? <h2 class="Righteous2">Complete!!!</h2>: '';
-    let resetevery= this.state.completed === true ? <button onClick={this.reset}><h1>Play Again</h1></button>: '';    
+    let Com= this.state.completed === true ? <span class="blink">Complete!!!</span>: '';
+    let resetevery= this.state.completed === true ? <p><button onClick={this.reset}><h1>Play Again</h1></button></p>: '';    
 
     return (
      <div><h1 class="R2">Find the word</h1>
-      <div className="Backgrounf">
+      <div className="Background">
        
         {Array.from(this.state.chars).map((item, index) => <CharacterCard value={item} key={index}  attempt={this.state.attempt} activationHandler={this.activationHandler} />)}
- 
-        <h2>Selected :</h2>
+        
+        <div class="Righteous">Attemp {this.state.attempt} Selected:</div>
         <div class="Righteous2">{this.state.guess}</div>
-        <div class="Righteous">Attemp {this.state.attempt}</div>
         <div >{Com}{resetevery}</div>
       </div>
       </div>
