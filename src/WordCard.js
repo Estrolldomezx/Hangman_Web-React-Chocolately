@@ -2,46 +2,54 @@ import React ,{ useState } from 'react';
 import CharacterCard from './CharacterCard';
 import  _ from 'lodash';
 
-const prepareStateFromWord = given_word => {
-    let word = given_word.toUpperCase()
-     let chars = _.shuffle(Array.from(word)) //function lodash
-    return {
-        word,
-        chars,
-        attempt: 1,
-        guess: '',
-        completed: false
+const message = "HELLO"
+const prepareStateFromWord = (given_word) => {
+const word = given_word.toUpperCase()
+const chars = _.shuffle(Array.from(word))
+  return {
+    word,
+    chars,
+    attempt: 1,
+    guess: [],
+    completed: false
+  }
+}
+class App extends React.Component {
+
+
+  state = prepareStateFromWord(message)
+  
+  activationHandler = (c) => {
+    const guess = [...this.state.guess, c]
+
+    this.setState({ guess })
+    if (guess.length == this.state.chars.length) {
+      if (guess.join('').toString() == this.state.word) {
+        this.setState({guess: [],completed: true })
+      }
+      else {
+        this.setState({guess: [],attempt: this.state.attempt + 1 })
+      }   
     }
+  }
+
+  render() {
+
+    let attempt= this.state.completed === false ? 'FAIL' : '';
+    let Com= this.state.completed === true ? <h2 class="Righteous2">Complete </h2>: '';
+    let resetevery= this.state.completed === true ? <button onClick={this.reset}><h1>Play Again</h1></button>: '';    
+
+    return (
+     <div><h1 class="R2">Find the world</h1>
+      <div className="Backgrounf">
+       
+        {Array.from(this.state.chars).map((item, index) => <CharacterCard value={item} key={index}  attempt={this.state.attempt} activationHandler={this.activationHandler} />)}
+
+      </div>
+      </div>
+    );
+  }
 }
 
-export default function WordCard(props){
 
-    const [state, setState] = useState(prepareStateFromWord(props.value))
-
-    const activationHandler = c => {
-        console.log(`${c} has been activated.`) 
-    
-        let guess = state.guess + c
-        setState({...state, guess})
-
-
-        if(guess.length == state.word.length){
-            if(guess == state.word){
-                console.log('Yeah!')
-                setState({...state,completed: true})
-            }else{
-                console.log('reset, next attempt')
-                setState({...state, guess: '', attempt: state.attempt + 1})
-            }
-        }
-        console.log(guess)
-    }
-    return(
-        <div>
-            {
-                state.chars.map((c, i) => 
-                <CharacterCard value={c} key={i} activationHandler = {activationHandler} attempt={state.attempt}/>) //auto import Ctrl+space
-            }
-        </div>
-    )
-}
+export default App;
